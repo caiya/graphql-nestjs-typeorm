@@ -1,0 +1,26 @@
+type Query {
+  users: [User]
+  user(id: ID!): User
+  getCatsByUserId(id: ID!): [Cat]
+}
+
+type Mutation {
+  createUser(user: UserInput!): User
+  updateUser(id: ID!, user: UserInput!): Boolean
+  delUser(id: ID!): Boolean
+}
+
+type User {
+  id: Int
+  username: String
+  password: String
+  email: String
+  cats: [Cat]
+}
+
+
+input UserInput {
+  username: String!
+  password: String!
+  email: String!
+}
